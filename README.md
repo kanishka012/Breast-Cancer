@@ -1,33 +1,19 @@
-# Machine Learning Classification Project
+Problem Statement:
+Build and deploy an interactive web application that demonstrates 6 different classification algorithms on a single dataset. The application should allow users to:
+Upload test data for predictions
+Compare model performance across multiple metrics
+Visualize results through confusion matrices
+Make real-time predictions using trained models
 
-## a. Problem Statement
+Dataset Description: Attribute	Description
+- Source:	Sklearn Built-in Dataset
+- Instances:	569 samples
+- Features:	30 numerical features
+- Target:	0 → Malignant , 1 → Benign  
+- Class Distribution:	(37.3%) Malignant cases, (62.7%) Benign cases
 
-The objective of this project is to classify whether a tumor is 
-Malignant (cancerous) or Benign (non-cancerous) using multiple 
-Machine Learning classification algorithms.
 
-The goal is to compare the performance of six different classification 
-models using various evaluation metrics and determine the best-performing model.
-
----
-
-## b. Dataset Description
-
-Dataset Name: Breast Cancer Wisconsin Dataset  
-Source: sklearn built-in dataset  
-
-Number of Instances: 569  
-Number of Features: 30 numerical features  
-Type: Binary Classification  
-
-Target Classes:
-0 → Malignant  
-1 → Benign  
-
-The dataset contains features computed from digitized images of 
-fine needle aspirate (FNA) of breast mass tissue.
-
-Feature categories include:
+Feature list:
 - Mean radius
 - Mean texture
 - Mean perimeter
@@ -35,62 +21,32 @@ Feature categories include:
 - Mean smoothness
 - And several other statistical measurements
 
-This dataset satisfies assignment requirements:
-✔ Minimum 12 features (30 available)  
-✔ Minimum 500 instances (569 available)
 
----
+Models & Performance
+-Six classification models were implemented and evaluated: Logistic regression, decision tree, k-nearest neighbours, naive bayes, random forest, xgboost
+ -------------------------------------------------------------------------
+  Model        Accuracy     AUC      Precision   Recall   F1 Score  MCC                                                                      
+  ------------ ------------ -------- ----------- -------- --------- ------ 
+  XGBoost      0.9561       0.9901   0.9467      0.9861   0.966    0.9058   
 
-## c. Models Used
+  Random       0.9561       0.9929   0.9589      0.9722   0.9655   0.9054   
+  Forest                                                                     
 
-The following 6 Machine Learning models were implemented on the same dataset:
+  KNN          0.9561       0.9788   0.9589      0.9722   0.9655   0.9054   
 
-1. Logistic Regression
-2. Decision Tree Classifier
-3. K-Nearest Neighbor (KNN)
-4. Naive Bayes (Gaussian)
-5. Random Forest (Ensemble Model)
-6. XGBoost (Ensemble Model)
+  Naive Bayes  0.8594       0.8517   0.4844      0.7209   0.5794   0.5131   
 
----
+  Decision     0.8947       0.8968   0.9412      0.8889   0.9143   0.7803   
+  Tree
 
-## Evaluation Metrics Used
+  Logistic
+  Regression   0.9825      0.9954    0.9861     0.9861   0.9861    0.9623                                                            
+  -------------------------------------------------------------------------
 
-For each model, the following metrics were calculated:
-
-- Accuracy
-- AUC Score
-- Precision
-- Recall
-- F1 Score
-- Matthews Correlation Coefficient (MCC)
-
----
-
-## Model Comparison Table
-
-| ML Model Name        | Accuracy | AUC | Precision | Recall | F1 | MCC |
-|----------------------|----------|-----|-----------|--------|----|-----|
-| Logistic Regression  |          |     |           |        |    |     |
-| Decision Tree        |          |     |           |        |    |     |
-| KNN                  |          |     |           |        |    |     |
-| Naive Bayes          |          |     |           |        |    |     |
-| Random Forest        |          |     |           |        |    |     |
-| XGBoost              |          |     |           |        |    |     |
-
-
----
-
-## Observations
-
-| ML Model Name        | Observation about model performance |
-|----------------------|--------------------------------------|
-| Logistic Regression  | Performs very well due to clear linear separation in dataset. |
-| Decision Tree        | Easy to interpret but may overfit the data. |
-| KNN                  | Performs well after scaling but is computationally expensive. |
-| Naive Bayes          | Fast model but assumes feature independence. |
-| Random Forest        | High performance due to ensemble learning and reduced overfitting. |
-| XGBoost              | Generally achieves the best performance due to boosting technique. |
-
----
-
+Key Observations:
+Logistic Regression	- Works very well due to clear linear separation in dataset. It provides stable and interpret-able results.
+Decision Tree	      - Decision Tree captures non-linear patterns but may over-fit the training data. It is prone to over fitting, especially when not properly pruned.
+KNN	                - Performs well after scaling but is computationally expensive.
+Naive Bayes	        - Fast model but assumes feature independence.
+Random Forest	      - High performance due to ensemble learning and reduced over fitting.
+XGBoost             - Generally achieves the best performance due to boosting technique.
